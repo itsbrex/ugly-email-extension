@@ -20,6 +20,26 @@
     "last 2 Chrome versions",
     "last 2 Firefox versions"
   ],
+  "babel": {
+    "plugins": [
+      [
+        "replace-import-extension",
+        {
+          "extMapping": {
+            ".js": ""
+          }
+        }
+      ]
+    ]
+  },
+  "parcelrc": {
+    "extends": "@parcel/config-default",
+    "transformers": {
+      "*.{ts,tsx}": [
+        "@parcel/transformer-typescript-tsc"
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OneClickLab/ugly-email-extension.git"
@@ -35,10 +55,13 @@
     "jquery": "^4.0.0-beta"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@parcel/transformer-typescript-tsc": "^2.13.3",
     "@types/chrome": "^0.0.262",
     "@types/jest": "^26.0.19",
     "@types/jquery": "^3.5.29",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "babel-plugin-replace-import-extension": "^1.1.4",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-plugin-import": "^2.22.1",
@@ -54,5 +77,11 @@
     "gmail-js": {
       "jquery": "^4.0.0-beta"
     }
-  }
+  },
+  "trustedDependencies": [
+    "core-js",
+    "core-js-bundle",
+    "fsevents",
+    "parcel-bundler"
+  ]
 }
