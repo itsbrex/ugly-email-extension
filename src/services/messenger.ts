@@ -20,7 +20,9 @@ export class UglyMessenger {
 
   private handleMessage(event: MessageEvent<MessageData>): void {
     // Only accept messages from the same origin
-    if (event.origin !== window.location.origin) return;
+    if (event.origin !== window.location.origin) {
+      return;
+    }
 
     const { data } = event;
     

@@ -25,7 +25,9 @@ function connectToBackground(): void {
 }
 
 function setupConnectionListeners(): void {
-  if (!connection) return;
+  if (!connection) {
+    return;
+  }
 
   connection.onMessage.addListener((message: { id: string; pixel: string; error?: string }) => {
     window.postMessage(
@@ -59,7 +61,9 @@ connectToBackground();
 // Set up message listener with type safety
 window.addEventListener('message', ({ data, origin }: MessageEvent) => {
   // Only accept messages from the same origin
-  if (origin !== window.location.origin) return;
+  if (origin !== window.location.origin) {
+    return;
+  }
 
   if (data?.from === 'ugly-email-check' && connection) {
     try {

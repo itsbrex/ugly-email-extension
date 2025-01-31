@@ -35,7 +35,9 @@ class UglyEmail {
   }
 
   private startObserver(): void {
-    if (!this.isInitialized) return;
+    if (!this.isInitialized) {
+      return;
+    }
 
     const observe = async (): Promise<void> => {
       try {

@@ -25,8 +25,7 @@ export function createEmail(id: string, tracker?: string | null): Promise<Email>
 }
 
 export async function findEmailById(id: string): Promise<Email> {
-  const record = await indexedDB.findByKey('emails', id);
-  return record;
+  return await indexedDB.findByKey('emails', id);
 }
 
 export async function findAllEmails(): Promise<Email[]> {
